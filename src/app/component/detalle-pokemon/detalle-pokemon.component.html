@@ -1,0 +1,56 @@
+<div id="backdrop" [ngClass]="{escondido: !abierto}" (click)="clicked.emit()" ></div>
+<div id="container">
+
+    <div id="datos">
+        <div class="area">
+            <app-lista-pokemon [fullData]="pokemon">
+
+
+            </app-lista-pokemon>
+        </div>
+
+        <div class="area">
+            <p>
+                <span class="etiqueta">Tipo</span> <span class="tipo" *ngFor="let tipo of pokemon?.types" [ngClass]="{
+                    'normal' : tipo.type.name == 'normal',
+                    'fighting' : tipo.type.name == 'fighting',
+                    'water': tipo.type.name == 'water',
+                    'flying': tipo.type.name == 'flying',
+                    'poison': tipo.type.name == 'poison',
+                    'ground': tipo.type.name == 'ground',
+                    'rock': tipo.type.name == 'rock',
+                    'bug': tipo.type.name == 'bug',
+                    'ghost': tipo.type.name == 'ghost',
+                    'steel': tipo.type.name == 'steel',
+                    'fire': tipo.type.name == 'fire',
+                    'grass': tipo.type.name == 'grass',
+                    'electric': tipo.type.name == 'electric',
+                    'psychic': tipo.type.name == 'psychic',
+                    'ice': tipo.type.name == 'ice',
+                    'dragon': tipo.type.name == 'dragon',
+                    'dark': tipo.type.name == 'dark',
+                    'fairy': tipo.type.name == 'fairy'
+                    
+                }">{{tipo.type.name}}</span>
+
+            </p>
+
+
+
+            <p><span class="etiqueta">Altura</span>{{pokemon?.height}}" </p>
+            <p><span class="etiqueta">Peso</span>{{pokemon?.weight}}lbs.</p>
+        </div>
+
+        <div class="area">
+            <div id="descripcionContainer">
+                <div></div>
+                <p>{{descripcion}}</p>
+                <div></div>
+            </div>
+
+        </div>
+    </div>
+    <button (click)="clicked.emit()">
+        <img src="../../../assets/img/Flecha.png" alt="" [ngClass]="{girar: abierto}">
+    </button>
+</div>

@@ -1,0 +1,26 @@
+<main id="container">
+
+<app-detalle-pokemon 
+[pokemon]="pokemonSeleccionado"
+(clicked)="cambiarEstado()"
+[abierto]="detalle"
+[ngClass]="{abierto: detalle}"
+>
+</app-detalle-pokemon>
+
+<app-foto-pokemon
+[ngClass]="{abierto: detalle}"
+[pokemon]="pokemonSeleccionado"></app-foto-pokemon>
+
+<div id="listCard" #tarjetas (scroll)="onScroll($event)">
+
+<app-lista-pokemon *ngFor="let pokemon of listaPokemon"
+[data]="pokemon"
+[Seleccionado]="pokemon.name === pokemonSeleccionado?.name"
+
+(Clickleado)="tarjetaclickeada($event)"
+></app-lista-pokemon>
+<img src="./../../../assets/img/spinner.svg" alt="Cargando" id="spinner" *ngIf="cargando">
+
+</div>
+</main>
